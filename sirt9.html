@@ -1,0 +1,782 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Product Image Viewer</title>
+<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" />
+
+
+<style>
+body{
+  margin:0;
+  font-family: Arial;
+  background:#f2f2f2;
+}
+.home{
+background:black;
+vertical-align:supar;
+font-size:20px;
+  height:30px;
+  color:white;
+  width:20%;
+    margin-left:10px;
+    margin-top:12px;
+    border-radius:20%;
+}
+home:hover{
+    background:gray; 
+   
+}
+.box2{
+border:1px solid #ddd;
+padding:15px;
+border-radius:10px;
+max-width:400px;
+margin-top:5px;
+}
+
+
+/* Main container */
+.container{
+  max-width:400px;
+  margin:auto;
+  padding:10px;
+}
+
+/* Top Big Image */
+.main-image{
+  width:100%;
+  height:400px;
+  background:#fff;
+  border-radius:10px;
+  overflow:hidden;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+}
+
+.main-image img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
+.color{
+    color:#088178;
+}
+/* Bottom Scroll Images */
+.thumbnail-container{
+  margin-top:10px;
+  display:flex;
+  gap:10px;
+  overflow-x:auto;
+  padding-bottom:5px;
+}
+
+.thumbnail-container::-webkit-scrollbar{
+  display:none;
+}
+.box1{
+border:1px solid #ddd;
+margin-top:20%;
+padding:15px;
+border-radius:10px;
+max-width:400px;
+}
+.thumbnail{
+  min-width:100px;
+  height:100px;
+  border-radius:8px;
+  overflow:hidden;
+  border:2px solid transparent;
+  cursor:pointer;
+}
+
+.thumbnail img{
+  width:100%;
+  height:100px;
+  object-fit:cover;
+}
+
+.thumbnail.active{
+border:2px solid red;
+  height:10%;
+}
+.details{
+margin-left:5px;
+}
+h4{
+margin-top:1px;
+    color:#lalala;
+    font-size:14px;
+}
+.star{
+margin-top:-15px;
+    font-size:10px;
+    color:rgb(243,181,25);
+}
+p{
+margin-top:1px;
+    font-size:15px;
+    font-weight:700;
+    color:#088178;
+}
+
+.sirt{
+background:#2563eb;
+  height:30px;
+  color:white;
+  width: 25%;
+    margin-left:10px;
+    margin-top:50px;
+    border-radius:20%;
+}
+.sirt:hover{
+    background:#1d4ed8; 
+   
+}
+
+
+
+
+
+
+.selected-size{
+    font-size: 20px;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+/* Scroll Container */
+.size-container{
+    display: flex;
+    gap: 15px;
+    overflow-x: auto;
+    padding: 10px 15px;
+    scroll-behavior: smooth;
+}
+
+/* Hide Scrollbar */
+.size-container::-webkit-scrollbar{
+    height: 6px;
+}
+.size-container::-webkit-scrollbar-thumb{
+    background: rgba(0,0,0,0.3);
+    border-radius: 10px;
+}
+
+/* Size Box */
+.size{
+    min-width: 70px;
+    height: 60px;
+    border: 2px solid
+    rgba(0,0,0,0.2); /* Transparent Border */
+    background: rgba(255,255,255,0.3); /* Light Transparent Background */
+    backdrop-filter: blur(5px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-weight: bold;
+    transition: 0.3s ease;
+    border-radius: 10px;
+    flex-shrink: 0;
+}
+
+
+/* Active Size */
+.active{
+    background: black;
+    color: white;
+    border-color: green;
+}
+
+
+.price{
+    font-size:15px;
+    vertical-align:20px;
+    left:10px;
+}
+
+.price-box {
+margin-left:20px;
+  font-size: 20px;
+  font-family: Arial, sans-serif;
+  margin-top:10%;
+}
+.mark{
+    color:red;
+    font-size:30px;
+}
+.old-price {
+  text-decoration: line-through;
+  color: gray;
+  margin-right: 10px;
+}
+
+.new-price {
+  color: black;
+  font-weight: bold;
+  font-size:40px;
+}
+
+
+
+
+
+
+.box{
+border:1px solid #ddd;
+padding:15px;
+border-radius:10px;
+max-width:400px;
+}
+
+.delivery{
+font-size:16px;
+margin-bottom:10px;
+}
+
+.date{
+color:green;
+font-weight:bold;
+}
+
+.timer{
+color:#0a7;
+font-weight:bold;
+}
+
+.location{
+color:#007185;
+margin-top:10px;
+}
+
+.stock{
+color:green;
+font-weight:bold;
+margin-top:10px;
+}
+
+select{
+width:100%;
+padding:10px;
+margin-top:10px;
+border-radius:20px;
+border:1px solid #999;
+}
+
+
+
+
+
+
+
+
+
+
+.container{
+background:white;
+border-radius:8px;
+padding:15px;
+}
+
+.title{
+font-size:22px;
+font-weight:bold;
+margin-bottom:10px;
+}
+
+.header{
+display:flex;
+justify-content:space-between;
+align-items:center;
+font-size:18px;
+font-weight:bold;
+cursor:pointer;
+padding:10px 0;
+}
+
+.arrow{
+transition:0.3s;
+}
+
+.rotate{
+transform:rotate(180deg);
+}
+
+.content{
+display:none;
+margin-top:10px;
+}
+
+.show{
+display:block;
+}
+
+.grid{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:15px;
+margin-top:10px;
+}
+
+.label{
+font-weight:bold;
+}
+
+.desc{
+color:#555;
+}
+
+.about{
+margin-top:20px;
+}
+
+ul{
+padding-left:18px;
+}
+
+.seemore{
+color:#0073e6;
+cursor:pointer;
+margin-top:5px;
+display:inline-block;
+}
+
+.moretext{
+display:none;
+}
+
+
+
+
+
+
+
+
+
+.section-m1{
+margin-top:5%;
+margin-left:19px;
+
+} 
+.buttom-1{
+font-size:15px;
+background:#FFA500;
+    width:95%;
+    height:40px;
+    border-radius:20px;
+    
+}
+.buttom-2{
+margin-top:20px;
+font-size:15px;
+background:#FFA500;
+    width:95%;
+    height:40px;
+    border-radius:20px;
+    
+}
+
+
+</style>
+</head>
+<body>
+    <div class="container">
+<a href="my first website.html"><button class="home">home</button></a>
+
+
+<div class="box2">
+  <!-- Top Big Image -->
+  <div class="main-image">
+    <img id="bigImage" src="51.jpg">
+    
+     </div>
+     </div>
+     <div class="box1">
+<div class="color">
+    <h2>colour</h2>
+</div>
+  <!-- Bottom Scroll Thumbnails -->
+  <div class="thumbnail-container">
+
+    <div class="thumbnail active">
+      <img src="51.jpg">
+      <div class="details">
+          <h4>gray colour</h4>
+          <div class="star">
+<i class="fas fa-star"></i>
+<i class="fas fa-star"></i>
+<i class="fas fa-star"></i>
+<i class="fas fa-star"></i>
+<i class="fas fa-star"></i>
+          <p>₹462</p>
+          </div>
+      </div>
+</div>
+
+    <div class="thumbnail">
+      <img src="52.jpg">
+      <div class="details">
+          <h4>maroon colour</h4>
+          <div class="star">
+<i class="fas fa-star"></i>
+<i class="fas fa-star"></i>
+<i class="fas fa-star"></i>
+<i class="fas fa-star"></i>
+<i class="fas fa-star"></i>
+          <p>₹462</p>
+          </div>
+      </div>
+
+    </div>
+
+    <div class="thumbnail">
+      <img src="53.jpg">
+      <div class="details">
+          <h4>purple colour </h4>
+          <div class="star">
+<i class="fas fa-star"></i>
+<i class="fas fa-star"></i>
+<i class="fas fa-star"></i>
+<i class="fas fa-star"></i>
+<i class="fas fa-star"></i>
+          <p>₹462</p>
+          </div>
+      </div>
+
+    </div>
+
+    <div class="thumbnail">
+      <img src="54.jpg">
+      <div class="details">
+          <h4>Light green</h4>
+          <div class="star">
+<i class="fas fa-star"></i>
+<i class="fas fa-star"></i>
+<i class="fas fa-star"></i>
+<i class="fas fa-star"></i>
+<i class="fas fa-star"></i>
+          <p>₹462</p>
+          </div>
+      </div>
+
+    </div>
+
+    <div class="thumbnail">
+      <img src="55.jpg">
+      <div class="details">
+          <h4>Navy blue</h4>
+          <div class="star">
+<i class="fas fa-star"></i>
+<i class="fas fa-star"></i>
+<i class="fas fa-star"></i>
+<i class="fas fa-star"></i>
+<i class="fas fa-star"></i>
+          <p>₹462</p>
+          </div>
+      </div>
+
+    </div>
+  </div>
+
+
+
+
+
+
+<div class="selected-size" id="selectedSize">
+    Selected Size: None
+</div>
+
+<div class="size-container">
+    <div class="size">XS</div>
+    <div class="size">S</div>
+    <div class="size">M</div>
+    <div class="size">L</div>
+    <div class="size">XL</div>
+    <div class="size">XXL</div>
+    <div class="size">3XL</div>
+    <div class="size">4XL</div>
+    <div class="size">5XL</div>
+</div>
+</div>
+<div class="box">
+<div class="MRP">
+    
+</div>
+
+
+
+<div class="price-box">
+   <span class="mark">-73%</span> 
+   <span class="price">₹</span>
+    <span class="new-price">499</span><br><br>
+    <span class="mrp">M.R.P.:</span>
+ <span class="old-price">₹1,849<span>
+</div>
+</div>
+
+
+
+<div class="box">
+
+<div class="delivery">
+मुफ्त डिलीवरी <span class="date" id="deliveryDate"></span>
+</div>
+
+<div>
+अभी ऑर्डर करें <span class="timer" id="timer"></span> में
+</div>
+
+<div class="location">
+📍 Bhubaneswar 751001 में डिलीवर कर रहे हैं
+</div>
+
+<div class="stock">
+स्टॉक में है
+</div>
+
+<select>
+<option>मात्रा: 1</option>
+<option>मात्रा: 2</option>
+<option>मात्रा: 3</option>
+<option>मात्रा: 4</option>
+</select>
+
+
+
+
+
+
+<div class="section-m1">
+    <button class="buttom-1">add to Cart</button>
+    <button class="buttom-2">BUY</button>
+</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+<div class="container">
+
+<div class="title">प्रोडक्ट डिटेल्स</div>
+<div class="box">
+<div class="header" onclick="toggleSection()">
+<span>टॉप हाईलाइट</span>
+<span id="arrow" class="arrow">⌄</span>
+</div>
+
+<div id="content" class="content">
+
+<div class="grid">
+
+<div>
+<div class="label">मटीरियल की संरचना</div>
+<div class="desc">80% कॉटन, 20% सिल्क</div>
+</div>
+
+<div>
+<div class="label">पैटर्न</div>
+<div class="desc">ठोस</div>
+</div>
+
+<div>
+<div class="label">फिट प्रकार</div>
+<div class="desc">रेगुलर फिट</div>
+</div>
+
+<div>
+<div class="label">स्लीव प्रकार</div>
+<div class="desc">लंबी स्लीव</div>
+</div>
+
+<div>
+<div class="label">कॉलर स्टाइल</div>
+<div class="desc">स्प्रेड कॉलर</div>
+</div>
+
+<div>
+<div class="label">लंबाई</div>
+<div class="desc">मानक लंबाई</div>
+</div>
+
+</div>
+
+
+<div class="about">
+
+<h3>इस आइटम के बारे में</h3>
+
+<ul>
+<li>देखभाल संबंधी निर्देश: मशीन वॉश</li>
+
+<li>
+शर्ट मटीरियल: सॉफ्ट टच कॉटन फैब्रिक कोमलता, वायु पारगम्यता और नमी अवशोषण की अच्छी क्षमता नरम और आरामदायक 80% कॉटन 20% सिल्क महसूस करती है।
+</li>
+
+<li>
+स्लीव टाइप: फुल स्लीव, अवसर: कैजुअल, क्लोज़र:- बटन, पॉकेट टाइप: V- डिजाइनर पॉकेट
+</li>
+
+</ul>
+
+<div class="seemore" onclick="toggleMore()">और अधिक देखें</div>
+
+<div id="more" class="moretext">
+
+<ul>
+<li>उच्च गुणवत्ता वाली फैब्रिक</li>
+<li>आरामदायक और हल्का डिजाइन</li>
+<li>दैनिक उपयोग के लिए उपयुक्त</li>
+</ul>
+<div class="seemore" onclick="toggleMore()">कम देखें</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+
+
+
+
+<a href="sirt8.html"><button class="home"><<</button></a>
+<script>
+const thumbnails = document.querySelectorAll(".thumbnail");
+const bigImage = document.getElementById("bigImage");
+
+thumbnails.forEach(thumb => {
+  thumb.addEventListener("click", () => {
+
+    // Remove active class
+    thumbnails.forEach(t => t.classList.remove("active"));
+
+    // Add active to clicked
+    thumb.classList.add("active");
+
+    // Change big image
+    bigImage.src = thumb.querySelector("img").src;
+  });
+});
+
+
+
+
+
+
+
+const sizes = document.querySelectorAll(".size");
+const selectedText = document.getElementById("selectedSize");
+
+sizes.forEach(size => {
+    size.addEventListener("click", function(){
+
+        sizes.forEach(s => s.classList.remove("active"));
+
+        this.classList.add("active");
+
+        selectedText.innerText = "Selected Size: " + this.innerText;
+
+    });
+});
+
+
+
+
+
+
+let today = new Date();
+today.setDate(today.getDate() + 3);
+
+let day = today.getDate();
+
+let months=[
+"जनवरी","फरवरी","मार्च","अप्रैल","मई","जून",
+"जुलाई","अगस्त","सितंबर","अक्टूबर","नवंबर","दिसंबर"
+];
+
+let month = months[today.getMonth()];
+
+document.getElementById("deliveryDate").innerHTML =
+day + " " + month + " तक";
+
+
+/* Countdown Timer */
+
+let hours = 6;
+let minutes = 38;
+
+function updateTimer(){
+
+minutes--;
+
+if(minutes<0){
+minutes=59;
+hours--;
+}
+
+if(hours<0){
+hours=0;
+minutes=0;
+}
+
+document.getElementById("timer").innerHTML =
+hours+" घंटे "+minutes+" मिनट";
+
+}
+
+setInterval(updateTimer,60000);
+
+updateTimer();
+
+
+
+
+
+
+
+
+
+function toggleSection(){
+
+let content=document.getElementById("content")
+let arrow=document.getElementById("arrow")
+
+content.classList.toggle("show")
+arrow.classList.toggle("rotate")
+
+}
+
+function toggleMore(){
+
+let more=document.getElementById("more")
+
+if(more.style.display==="block"){
+more.style.display="none"
+}else{
+more.style.display="block"
+}
+
+}
+
+
+
+
+
+</script>
+
+</body>
+</html>
